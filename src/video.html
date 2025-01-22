@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TechHub - Video</title>
+    <link rel="stylesheet" href="./output.css" />
+  </head>
+  <body class="bg-gray-100">
+    <header class="bg-gray-800 text-white p-4">
+      <nav class="container mx-auto flex justify-between items-center">
+        <div class="logo text-2xl font-bold">TechHub</div>
+        <ul class="flex space-x-4">
+          <li><a href="index.html" class="hover:text-gray-400">Home</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="container mx-auto p-6">
+      <div class="bg-white shadow-lg rounded-lg overflow-hidden p-6">
+        <iframe
+          id="videoPlayer"
+          class="w-full h-96"
+          src=""
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+
+        <h2 id="videoTitle" class="text-2xl font-bold mt-4"></h2>
+        <p id="videoDescription" class="text-gray-600 mt-2"></p>
+      </div>
+
+      <div class="mt-8">
+        <h2 class="text-2xl font-bold mb-4">Comments</h2>
+        <div class="space-y-4">
+          <div class="bg-white shadow-lg rounded-lg p-4">
+            <p class="font-semibold">User123:</p>
+            <p class="text-gray-600">This video was very informative. Thanks for sharing!</p>
+          </div>
+
+          <div class="bg-white shadow-lg rounded-lg p-4">
+            <p class="font-semibold">TechEnthusiast:</p>
+            <p class="text-gray-600">Can't wait to see how edge computing evolves in the next decade.</p>
+          </div>
+
+          <div class="bg-white shadow-lg rounded-lg p-4">
+            <textarea
+              class="w-full p-2 border rounded"
+              placeholder="Add a comment..."
+            ></textarea>
+            <button class="mt-2 bg-blue-500 text-white px-4 py-2 rounded">Submit</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-6">
+      <div class="container mx-auto text-center">
+        <p>Made with ♡ by Waad</p>
+      </div>
+    </footer>
+
+    <script>
+      const urlParams = new URLSearchParams(window.location.search);
+      const videoId = urlParams.get("videoId");
+
+      const videoPlayer = document.getElementById("videoPlayer");
+      const videoTitle = document.getElementById("videoTitle");
+      const videoDescription = document.getElementById("videoDescription");
+
+      if (videoId) {
+        videoPlayer.src = `https://www.youtube.com/embed/${videoId}`;
+
+        const videos = {
+          ad79nYk2keg: {
+            title: "The Future of Artificial Intelligence",
+            description: "Exploring the latest developments in AI and machine learning...",
+          },
+          inWWhr5tnEA: {
+            title: "Cybersecurity Best Practices 2024",
+            description: "Essential cybersecurity measures for organizations...",
+          },
+          RAj1lH5Iw9A: {
+            title: "The Rise of Edge Computing",
+            description: "How edge computing is transforming technology...",
+          },
+        };
+
+        if (videos[videoId]) {
+          videoTitle.textContent = videos[videoId].title;
+          videoDescription.textContent = videos[videoId].description;
+        } else {
+          videoTitle.textContent = "Video Not Found";
+          videoDescription.textContent = "The requested video could not be found.";
+        }
+      } else {
+        videoTitle.textContent = "No Video Selected";
+        videoDescription.textContent = "Please select a video from the homepage.";
+      }
+    </script>
+  </body>
+</html>
