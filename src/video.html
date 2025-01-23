@@ -62,43 +62,8 @@
       </div>
     </footer>
 
-    <script>
-      const urlParams = new URLSearchParams(window.location.search);
-      const videoId = urlParams.get("videoId");
-
-      const videoPlayer = document.getElementById("videoPlayer");
-      const videoTitle = document.getElementById("videoTitle");
-      const videoDescription = document.getElementById("videoDescription");
-
-      if (videoId) {
-        videoPlayer.src = `https://www.youtube.com/embed/${videoId}`;
-
-        const videos = {
-          ad79nYk2keg: {
-            title: "The Future of Artificial Intelligence",
-            description: "Exploring the latest developments in AI and machine learning...",
-          },
-          inWWhr5tnEA: {
-            title: "Cybersecurity Best Practices 2024",
-            description: "Essential cybersecurity measures for organizations...",
-          },
-          RAj1lH5Iw9A: {
-            title: "The Rise of Edge Computing",
-            description: "How edge computing is transforming technology...",
-          },
-        };
-
-        if (videos[videoId]) {
-          videoTitle.textContent = videos[videoId].title;
-          videoDescription.textContent = videos[videoId].description;
-        } else {
-          videoTitle.textContent = "Video Not Found";
-          videoDescription.textContent = "The requested video could not be found.";
-        }
-      } else {
-        videoTitle.textContent = "No Video Selected";
-        videoDescription.textContent = "Please select a video from the homepage.";
-      }
-    </script>
+    
+     
+        
   </body>
 </html>
